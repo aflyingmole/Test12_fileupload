@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>upload.html</title>
+</head>
+<body>
+<h1>파일업로드</h1>
+<form method="post" th:action="@{/file/upload}" enctype="multipart/form-data">
+    작성자<br>
+    <input type="text" name="writer"><br>
+    제목<br>
+    <input type="text" name="title"><br>
+    내용<br>
+    <textarea rows="5" cols="50" name="content"></textarea><br>
+    첨부파일<br>
+    <input type="file" name="file1"><br>
+    <input type="submit" value="확인">
+</form>
+</body>
+</html>

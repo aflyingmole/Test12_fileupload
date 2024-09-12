@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>info.html</title>
+</head>
+<body>
+<h1>파일정보</h1>
+<table border="1">
+    <tr>
+        <td>파일번호</td>
+        <td th:text="${dto.fileNum}"></td>
+    </tr>
+    <tr>
+        <td>작성자</td>
+        <td th:text="${dto.writer}"></td>
+    </tr>
+    <tr>
+        <td>제목</td>
+        <td th:text="${dto.title}"></td>
+    </tr>
+    <tr>
+        <td>원본파일명</td>
+        <td th:text="${dto.orgFilename}"></td>
+    </tr>
+    <tr>
+        <td>파일크기</td>
+        <td th:text="${dto.filesize}"></td>
+    </tr>
+    <tr>
+        <td>이미지</td>
+        <td><img th:src="@{|/images/${dto.saveFilename}|}"></td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <a th:href="@{/file/update(fileNum=${dto.fileNum})}">수정</a>
+            <a th:href="@{/file/delete(fileNum=${dto.fileNum})}">삭제</a>
+            <a th:href="@{/file/download(fileNum=${dto.fileNum})}">저장</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/}">홈컨</a>
+</body>
+</html>

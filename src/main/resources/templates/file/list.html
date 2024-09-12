@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>list.html</title>
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>파일번호</th>
+        <th>작성자</th>
+        <th>제목</th>
+        <th>업로드한파일명</th>
+        <th>파일크기</th>
+        <th>상세</th>
+    </tr>
+    <tr th:each="file : ${list}">
+        <td th:text="${file.fileNum}"></td>
+        <td th:text="${file.writer}"></td>
+        <td th:text="${file.title}"></td>
+        <td th:text="${file.orgFilename}"></td>
+        <td th:text="${file.filesize}"></td>
+        <td><a th:href="@{/file/info(fileNum=${file.fileNum})}">상세</a></td>
+
+    </tr>
+</table>
+<a th:href="@{/}">홈컨</a>
+</body>
+</html>

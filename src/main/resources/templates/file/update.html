@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update.html</title>
+</head>
+<body>
+<h1>수정</h1>
+<form th:object="${update}" method="post" th:action="@{/file/update}" enctype="multipart/form-data">
+    <input type="hidden" name="fileNum" th:field="*{fileNum}">
+    작성자<br>
+    <input type="text" name="writer" th:field="*{writer}" readonly><br>
+    제목<br>
+    <input type="text" name="title" th:field="*{title}" ><br>
+    내용<br>
+    <textarea rows="5" cols="50" name="content">[[*{content}]]</textarea><br>
+    이미지<br>
+    <img th:src="@{|/images/*{saveFilename}|}"/>
+    기존 파일명 : [[*{orgFilename}]]<br>
+    수정할 파일<br>
+    <input type="file" name="file1"><br>
+    <input type="submit" value="수정">
+</form>
+
+</body>
+</html>
